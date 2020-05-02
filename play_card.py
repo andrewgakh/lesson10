@@ -74,13 +74,13 @@ class Cards():
     # Если карта бита берут по карте из колоды Игрок 2 затем Игрок 1. Если карта не бита карту берет только Игрок 2.
     def otbil_plr_1(self):
         crd_tmp_list = self.cards_player1
-        koz_flag = 0    # Указывает наличие козыря
+        self.koz_flag = 0    # Указывает наличие козыря
         num = 0
         mast = self.kozyr[1]
         # Определяем наличие карты, которая имеет больший вес той же масти
         for i in range(len(crd_tmp_list)):
             crd_tmp = crd_tmp_list[i]
-            if  crd_tmp[2] > self.pole_plr_2[2] and crd_tmp[1] == self.pole_plr_2[1]:
+            if crd_tmp[2] > self.pole_plr_2[2] and crd_tmp[1] == self.pole_plr_2[1]:
                 self.pole_plr_1 = self.cards_player1.pop(i)
                 self.win_plr_1 = 1
                 break
@@ -94,17 +94,17 @@ class Cards():
                 if  crd_tmp[2] < min and crd_tmp[1] == self.kozyr[1]:
                     min = crd_tmp[2]
                     self.min_koz = crd_tmp
-                    koz_flag = 1
+                    self.koz_flag = 1
                     n = i
-            if koz_flag == 1:
+            if self.koz_flag == 1:
                 self.pole_plr_1 = self.cards_player1.pop(n)
                 self.win_plr_1 = 1
 
         if self.win_plr_1  == 1:
             # Берем по карте из колоды
-            if len(self.cards_player2) < 5:
+            if len(self.cards_player2) < 7:
                     self.cards_player2.append(self.koloda_play.pop(0))
-            elif len(self.cards_player1) < 5:
+            if len(self.cards_player1) < 7:
                     self.cards_player1.append(self.koloda_play.pop(0))
             print('Игрок 1. Карта игрока 2 БИТА ', self.pole_plr_1 )
             print('карты 1', self.cards_player1)
@@ -112,7 +112,7 @@ class Cards():
         else:
             self.win_plr_2 = 1
             # Берет карту из колоды игрок 2
-            if len(self.cards_player2) < 5:
+            if len(self.cards_player2) < 7:
                 self.cards_player2.append(self.koloda_play.pop(0))
             self.cards_player1.append(self.pole_plr_2)
             print('Игрок 1. Карта игрока 2 НЕ БИТА. Принимаю карту ', self.pole_plr_2)
@@ -121,13 +121,13 @@ class Cards():
         self.pole_plr_1.clear()
         self.pole_plr_2.clear()
         self.min_koz.clear()
-        koz_flag = 0
+        self.koz_flag = 0
 
     # Ответный ход Игрока 2. Ищет карту старше по масти, если нет ищет минимальную козырную карту. Иначе забирает карту.
     # Если карта бита берут по карте из колоды Игрок 1 затем Игрок 2. Если карта не бита карту берет только Игрок 1.
     def otbil_plr_2(self):
         crd_tmp_list = self.cards_player2
-        koz_flag = 0  # Указывает наличие козыря
+        self.koz_flag = 0  # Указывает наличие козыря
         num = 0
         mast = self.kozyr[1]
         # Определяем наличие карты, которая имеет больший вес той же масти
@@ -147,17 +147,17 @@ class Cards():
                 if crd_tmp[2] < min and crd_tmp[1] == self.kozyr[1]:
                     min = crd_tmp[2]
                     self.min_koz = crd_tmp
-                    koz_flag = 1
+                    self.koz_flag = 1
                     n = i
-            if koz_flag == 1:
+            if self.koz_flag == 1:
                 self.pole_plr_2 = self.cards_player2.pop(n)
                 self.win_plr_2 = 1
 
         if self.win_plr_2 == 1:
             # Берем по карте из колоды
-            if len(self.cards_player1) < 5:
+            if len(self.cards_player1) < 7:
                 self.cards_player1.append(self.koloda_play.pop(0))
-            elif len(self.cards_player2) < 5:
+            if len(self.cards_player2) < 7:
                 self.cards_player2.append(self.koloda_play.pop(0))
             print('Игрок 2. Карта игрока 1 БИТА ', self.pole_plr_2)
             print('карты 2', self.cards_player2)
@@ -165,16 +165,16 @@ class Cards():
         else:
             self.win_plr_1 = 1
             # Берет карту из колоды игрок 1
-            if len(self.cards_player1) < 5:
+            if len(self.cards_player1) < 7:
                 self.cards_player1.append(self.koloda_play.pop(0))
             self.cards_player2.append(self.pole_plr_1)
             print('Карта игрока 1 НЕ БИТА. Принимаю карту ', self.pole_plr_1)
             print('карты 2', self.cards_player2)
             print('карты 1', self.cards_player1)
-        self.pole_plr_1.clear()
-        self.pole_plr_2.clear()
-        self.min_koz.clear()
-        koz_flag = 0
+        #self.pole_plr_1.clear()
+        #self.pole_plr_2.clear()
+        #self.min_koz.clear()
+        self.koz_flag = 0
 
 if __name__ == '__main__':
     card_game = Cards()
