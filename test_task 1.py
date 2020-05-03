@@ -241,3 +241,4 @@ class TestCards_5_pytest:
         self.card_game.otbil_plr_1()
         assert len(self.card_game.cards_player1) > 6
         assert len(self.card_game.cards_player2) == 6
+        #
