@@ -1,18 +1,16 @@
-
-import pytest
+# import pytest
 from play_card import Cards
 
-class TestCards_pytest:
+class Test_cards_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
-        #self.card_game = Cards()
         self.card_game.mix_koloda()
         self.card_game.give_cards()
         print('Start test!')
 
     def teardown(self):
-        #self.dice_game.current_throw = 0
+
         print('Test completed!')
 
     def test_init(self):
@@ -29,7 +27,7 @@ class TestCards_pytest:
 
     # Тестируем ф-цию mix_koloda()
     def test_mix_koloda(self):
-        #self.card_game.mix_koloda()
+
         assert self.card_game.koloda_play != [['6','B', 6], ['6', 'C', 6], ['6', 'T', 6], ['6', 'P', 6],
                        ['7', 'B', 7], ['7', 'C', 7], ['7', 'T', 7], ['7', 'P', 7],
                        ['8', 'B', 8], ['8', 'C', 8], ['8', 'T', 8], ['8', 'P', 8],
@@ -42,7 +40,7 @@ class TestCards_pytest:
 
     # Тестируем ф-цию give_cards()
     def test_give_cards(self):
-        #self.card_game.give_cards()
+
         assert len(self.card_game.cards_player1) == 6
         assert len(self.card_game.cards_player2) == 6
 
@@ -54,9 +52,9 @@ class TestCards_pytest:
 
 #   Тест ф-ций otbil_plr_1, otbil_plr_2 ветка минимальный козырь
 
-class TestCards_1_pytest:
+class Test_cards_1_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
         self.card_game.koloda_play =[['8', 'C', 8], ['Q', 'C', 12],  ['A', 'P', 14], ['9', 'P', 9],
                                       ['10', 'C', 10], ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
@@ -70,10 +68,9 @@ class TestCards_1_pytest:
         print('Start test!')
 
     def teardown(self):
-        #self.dice_game.current_throw = 0
         print('Test completed!')
 
-    # # Тестируем ф-цию otbil_plr_2
+    # Тестируем ф-цию otbil_plr_2
     def test_otbil_plr_2_1(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
@@ -88,9 +85,9 @@ class TestCards_1_pytest:
         assert len(self.card_game.cards_player1) == 6
         assert len(self.card_game.cards_player2) == 6
 
-class TestCards_2_pytest:
+class Test_cards_2_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
         self.card_game.koloda_play =[['8', 'C', 8], ['Q', 'C', 12],  ['A', 'P', 14], ['9', 'P', 9],
                                       ['10', 'C', 10], ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
@@ -104,10 +101,9 @@ class TestCards_2_pytest:
         print('Start test!')
 
     def teardown(self):
-        #self.dice_game.current_throw = 0
         print('Test completed!')
 
-    # # Тестируем ф-цию otbil_plr_1
+    # Тестируем ф-цию otbil_plr_1
     def test_otbil_plr_1_1(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
@@ -123,9 +119,9 @@ class TestCards_2_pytest:
         assert len(self.card_game.cards_player2) == 6
 
 #   Тест ф-ций otbil_plr_1, otbil_plr_2 ветка больший вес такой же масти
-class TestCards_3_pytest:
+class Test_cards_3_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
         self.card_game.koloda_play =[['8', 'C', 8], ['Q', 'C', 12],  ['A', 'P', 14], ['9', 'P', 9],
                                        ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
@@ -139,7 +135,6 @@ class TestCards_3_pytest:
         print('Start test!')
 
     def teardown(self):
-        #self.dice_game.current_throw = 0
         print('Test completed!')
 
     # # Тестируем ф-цию otbil_plr_1
@@ -149,9 +144,9 @@ class TestCards_3_pytest:
         self.card_game.otbil_plr_1()
         assert self.card_game.win_plr_1 == 1
 
-class TestCards_4_pytest:
+class Test_cards_4_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
         self.card_game.koloda_play =[['8', 'C', 8], ['Q', 'C', 12],  ['A', 'P', 14], ['9', 'P', 9],
                                        ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
@@ -165,10 +160,9 @@ class TestCards_4_pytest:
         print('Start test!')
 
     def teardown(self):
-        #self.dice_game.current_throw = 0
         print('Test completed!')
 
-    # # Тестируем ф-цию otbil_plr_1
+    # Тестируем ф-цию otbil_plr_1
     def test_otbil_plr_2_1(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
@@ -176,9 +170,9 @@ class TestCards_4_pytest:
         assert self.card_game.win_plr_2 == 1
 
 #   Тест ф-ций otbil_plr_1, otbil_plr_2 ветка забираем карту
-class TestCards_4_pytest:
+class Test_cards_5_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
         self.card_game.koloda_play =[['8', 'C', 8], ['Q', 'C', 12],  ['A', 'P', 14], ['9', 'P', 9],
                                        ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
@@ -195,23 +189,23 @@ class TestCards_4_pytest:
         #self.dice_game.current_throw = 0
         print('Test completed!')
 
-    # # Тестируем ф-цию otbil_plr_1
+    # Тестируем ф-цию otbil_plr_1
     def test_otbil_plr_2_1(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
         self.card_game.otbil_plr_2()
         assert self.card_game.win_plr_2 == 0
 
-    def test_otbil_plr_2_1(self):
+    def test_otbil_plr_2_2(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
         self.card_game.otbil_plr_2()
         assert len(self.card_game.cards_player1) == 6
         assert len(self.card_game.cards_player2) > 6
 
-class TestCards_5_pytest:
+class TestCards_6_pytest:
 
-    def  setup(self):
+    def setup(self):
         self.card_game = Cards()
         self.card_game.koloda_play =[['8', 'C', 8], ['Q', 'C', 12],  ['A', 'P', 14], ['9', 'P', 9],
                                        ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
@@ -225,20 +219,18 @@ class TestCards_5_pytest:
         print('Start test!')
 
     def teardown(self):
-        #self.dice_game.current_throw = 0
         print('Test completed!')
 
-    # # Тестируем ф-цию otbil_plr_1
+    #  Тестируем ф-цию otbil_plr_1
     def test_otbil_plr_1_1(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
         self.card_game.otbil_plr_1()
         assert self.card_game.win_plr_1 == 0
 
-    def test_otbil_plr_1_1(self):
+    def test_otbil_plr_1_2(self):
         self.card_game.win_plr_2 = 0
         self.card_game.win_plr_1 = 0
         self.card_game.otbil_plr_1()
         assert len(self.card_game.cards_player1) > 6
         assert len(self.card_game.cards_player2) == 6
-        #

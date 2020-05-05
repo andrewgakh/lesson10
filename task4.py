@@ -16,7 +16,7 @@ class Cards():
                              ['10', 'C', 10], ['A', 'C', 14], ['10', 'B', 10], ['6', 'C', 6], ['9', 'C', 9], ['Q', 'T', 12],
                              ['Q', 'B', 12], ['10', 'P', 10], ['K', 'C', 13], ['6', 'T', 6], ['6', 'P', 6], ['J', 'P', 11],
                             ['10', 'T', 10], ['A', 'B', 14], ['7', 'T', 7], ['7', 'C', 7], ['K', 'T', 13], ['9', 'B', 9], ['6', 'B', 6]]      # Игральная колода карт
-        self.cards_player1 = [['8', 'B', 8], ['10', 'B', 10], ['K', 'T', 13], ['A', 'P', 14], ['6', 'T', 6]]                                 # Карты игрока 1
+        self.cards_player1 = [['8', 'B', 8], ['10', 'B', 10], ['K', 'T', 13], ['A', 'P', 14], ['6', 'T', 6]]      # Карты игрока 1
         self.cards_player2 = [['Q', 'B', 12], ['10', 'C', 10], ['J', 'B', 11], ['6', 'B', 6], ['7', 'T', 7], ['K', 'B', 13]]                   # Карты игрока 2
         self.kozyr = ['Q', 'P', 12]                                 # Козырная карта
         self.pole_plr_1 = ['9', 'C', 9]                             # Ход игрока 1
@@ -130,8 +130,9 @@ class Cards():
     def otbil_plr_2(self):
         crd_tmp_list = self.cards_player2
         self.koz_flag = 0  # Указывает наличие козыря
-        num = 0
-        mast = self.kozyr[1]
+        # num = 0
+        # mast = self.kozyr[1]
+
         # Определяем наличие карты, которая имеет больший вес той же масти
         for i in range(len(crd_tmp_list)):
             crd_tmp = crd_tmp_list[i]
@@ -141,13 +142,12 @@ class Cards():
                 break
         #  Определяем мин. козырь
         if self.win_plr_2 == 0:
-            # min = self.kozyr[2]
-            min = 14
+            min_ves = 14
             crd_tmp_list = self.cards_player2
             for i in range(len(crd_tmp_list)):
                 crd_tmp = crd_tmp_list[i]
-                if crd_tmp[2] < min and crd_tmp[1] == self.kozyr[1]:
-                    min = crd_tmp[2]
+                if crd_tmp[2] < min_ves and crd_tmp[1] == self.kozyr[1]:
+                    min_ves = crd_tmp[2]
                     self.min_koz = crd_tmp
                     self.koz_flag = 1
                     n = i

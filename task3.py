@@ -130,8 +130,9 @@ class Cards():
     def otbil_plr_2(self):
         crd_tmp_list = self.cards_player2
         self.koz_flag = 0  # Указывает наличие козыря
-        num = 0
-        mast = self.kozyr[1]
+        # num = 0
+        # mast = self.kozyr[1]
+
         # Определяем наличие карты, которая имеет больший вес той же масти
         for i in range(len(crd_tmp_list)):
             crd_tmp = crd_tmp_list[i]
@@ -141,13 +142,13 @@ class Cards():
                 break
         #  Определяем мин. козырь
         if self.win_plr_2 == 0:
-            # min = self.kozyr[2]
-            min = 14
+            min_ves = 14
             crd_tmp_list = self.cards_player2
             for i in range(len(crd_tmp_list)):
+
                 crd_tmp = crd_tmp_list[i]
-                if crd_tmp[2] < min and crd_tmp[1] == self.kozyr[1]:
-                    min = crd_tmp[2]
+                if crd_tmp[2] < min_ves and crd_tmp[1] == self.kozyr[1]:
+                    min_ves = crd_tmp[2]
                     self.min_koz = crd_tmp
                     self.koz_flag = 1
                     n = i

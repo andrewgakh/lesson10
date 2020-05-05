@@ -26,20 +26,20 @@ class Cards():
     def mix_koloda(self):
         i = 0
         while i < 36:
-            tmp = random.randint(0,35)
+            tmp = random.randint(0, 35)
             if self.koloda_play[tmp] == '':
                 self.koloda_play[tmp] = self.koloda[i]
-                i+=1
+                i += 1
         print('Перемешанная колода', self.koloda_play)
 
     # Раздаем карты игрокам
     def give_cards(self):
        i = 0
        self.kozyr = self.koloda_play[35]
-       while i< 12:
-            self.cards_player1.append(self.koloda_play[i])
-            self.cards_player2.append(self.koloda_play[i+1])
-            i+=2
+       while i < 12:
+           self.cards_player1.append(self.koloda_play[i])
+           self.cards_player2.append(self.koloda_play[i+1])
+           i += 2
        # Удаляем выданные карты из списка
        for i in range(12):
            self.koloda_play.pop(0)
@@ -56,7 +56,7 @@ class Cards():
         self.pole_plr_1 = self.cards_player1.pop(tmp)
         print()
         print('Ход игрока 1 ', self.pole_plr_1)
-        #print('карты 1', self.cards_player1)
+        # print('карты 1', self.cards_player1)
         print()
 
     # Ход Игрока 2.
@@ -66,7 +66,7 @@ class Cards():
         self.pole_plr_2 = self.cards_player2.pop(tmp)
         print()
         print('Ход игрока 2 ', self.pole_plr_2)
-        #print('карты 2', self.cards_player2)
+        # print('карты 2', self.cards_player2)
         print()
 
     # Ответный ход Игрока 1. Ищет карту старше по масти, если нет ищет минимальную козырную карту. Иначе забирает карту.
