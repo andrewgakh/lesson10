@@ -93,7 +93,7 @@ class Cards():
             crd_tmp_list = self.cards_player1
             for i in range(len(crd_tmp_list)):
                 crd_tmp = crd_tmp_list[i]
-                if  crd_tmp[2] < min_ves and crd_tmp[1] == self.kozyr[1]:
+                if crd_tmp[2] < min_ves and crd_tmp[1] == self.kozyr[1]:
                     min_ves = crd_tmp[2]
                     self.min_koz = crd_tmp
                     self.koz_flag = 1
